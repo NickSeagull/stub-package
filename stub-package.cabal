@@ -84,6 +84,8 @@ library
 
     Starter.Counter.Service
 
+    StubPackage
+
   hs-source-dirs: src
   default-language: GHC2021
 
