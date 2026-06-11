@@ -1,6 +1,7 @@
 {
   "name": "stub-package",
   "version": "0.1.0",
+  "type": "library",
   "neo-version": "main",
   "description": "A stub package to test that NeoPackages work",
   "author": "Nikita Tchayka",
