@@ -1,0 +1,97 @@
+cabal-version: 3.4
+name: stub-package
+version: 0.1.0
+description: A stub package to test that NeoPackages work
+homepage: https://neohaskell.org
+license: MIT
+author: Nikita Tchayka
+category: Development
+build-type: Simple
+
+-- This file is managed by NeoCLI and should not be modified manually.
+
+common common_cfg
+  ghc-options:
+    -Wall
+    -Wno-orphans
+    -threaded
+    -fno-warn-partial-type-signatures
+    -fno-warn-name-shadowing
+    -Werror
+
+  default-extensions:
+    ApplicativeDo
+    BlockArguments
+    DataKinds
+    DeriveDataTypeable
+    DuplicateRecordFields
+    ImportQualifiedPost
+    ImpredicativeTypes
+    NamedFieldPuns
+    NoFieldSelectors
+    NoImplicitPrelude
+    OverloadedLabels
+    OverloadedLists
+    OverloadedRecordDot
+    OverloadedStrings
+    PackageImports
+    PartialTypeSignatures
+    QualifiedDo
+    QuasiQuotes
+    Strict
+    TemplateHaskell
+    TypeApplications
+    TypeFamilies
+    TypeOperators
+
+  build-depends:
+    base,
+    nhcore,
+    nhintegrations,
+    aeson,
+    bytestring,
+    text,
+    uuid
+
+
+library
+  import: common_cfg
+  exposed-modules:
+
+    App
+
+    Starter.Config
+
+    Starter.Counter.Commands.CreateCounter
+
+    Starter.Counter.Commands.DecrementCounter
+
+    Starter.Counter.Commands.IncrementCounter
+
+    Starter.Counter.Core
+
+    Starter.Counter.Entity
+
+    Starter.Counter.Event
+
+    Starter.Counter.Events.CounterCreated
+
+    Starter.Counter.Events.CounterDecremented
+
+    Starter.Counter.Events.CounterIncremented
+
+    Starter.Counter.Queries.CounterView
+
+    Starter.Counter.Service
+
+  hs-source-dirs: src
+  default-language: GHC2021
+
+executable stub-package
+  import: common_cfg
+  main-is: Launcher.hs
+  build-depends:
+    base,
+    stub-package
+  hs-source-dirs: launcher
+  default-language: GHC2021
